@@ -6,12 +6,19 @@ function Form(props){
         onSubmit,
         onInputChange,
         onCheckboxChange,
+        disabled,
+        errors,
     } = props
 
     return (
         <div>
             <form onSubmit={onSubmit}>
                 <h2>This is a form!</h2>
+                <div className='errors'>
+                    <span>{errors.name}</span> 
+                    <span>{errors.password}</span>
+                    <span>{errors.email}</span>  
+                </div>
 
                 <label>Name&nbsp;
                     <input
@@ -42,14 +49,14 @@ function Form(props){
 
                 <label>Agree to Terms of Service
                     <input
-                        name='terms of service'
+                        name='terms'
                         type="checkbox"
                         onChange={onCheckboxChange}
                         checked={values.terms}
                     />
                 </label>
 
-                <button>Submit</button>
+                <button disabled={disabled}>Submit</button>
             </form>
         </div>
     )
